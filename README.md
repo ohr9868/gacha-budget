@@ -201,4 +201,4 @@
 https://www.figma.com/design/m2oJGgwoD5Y1a8YEWoQkiW/gacha-budget?node-id=0-1&t=zJiFnVHqwMdATgyU-1
 
 ## 12. ER図
-[![Image from Gyazo](https://i.gyazo.com/8b6d9fcc8fd7dbd3fbaba392e43c0338.png)](https://gyazo.com/8b6d9fcc8fd7dbd3fbaba392e43c0338)
+[![Image from Gyazo](https://i.gyazo.com/14f9fa193ed9a2ff58d9f1a77723b80a.png)](https://gyazo.com/14f9fa193ed9a2ff58d9f1a77723b80a)

@@ -200,3 +200,5 @@
 ## 11. 画面遷移図
 https://www.figma.com/design/m2oJGgwoD5Y1a8YEWoQkiW/gacha-budget?node-id=0-1&t=zJiFnVHqwMdATgyU-1
 
+## 12. ER図
+[![Image from Gyazo](https://i.gyazo.com/18cdcffe53e51462500b7df1349e288d.png)](https://gyazo.com/18cdcffe53e51462500b7df1349e288d)

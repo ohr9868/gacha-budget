@@ -196,3 +196,9 @@
 使用する言語やフレームワークが異なるため、キャッチアップにかかる時間は個人差があるものの、一定の時間を要することが予想されます。
 2. **Issueの見積もりが難しい**
 「どこまで理解していて、何が分からないのか」「調査にかかる時間」などが不明瞭な場合、開発期間内に完了することが難しくなってしまいます。
+
+## 11. 画面遷移図
+https://www.figma.com/design/m2oJGgwoD5Y1a8YEWoQkiW/gacha-budget?node-id=0-1&t=zJiFnVHqwMdATgyU-1
+
+## 12. ER図
+[![Image from Gyazo](https://i.gyazo.com/18cdcffe53e51462500b7df1349e288d.png)](https://gyazo.com/18cdcffe53e51462500b7df1349e288d)

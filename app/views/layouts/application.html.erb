@@ -24,6 +24,11 @@
   </head>
 
   <body>
+    <% flash.each do |type, message| %>
+      <div class="mx-4 mt-4 rounded-md border px-4 py-3">
+        <%= message %>
+      </div>
+    <% end %>
     <%= yield %>
   </body>
 </html>

@@ -8,7 +8,7 @@ RSpec.describe User, type: :model do
     end
     it 'メールアドレスが空白の場合エラーになるか' do
       user_without_email = build(:user, email: '')
-      expect(user_without_email).to be_invalid 
+      expect(user_without_email).to be_invalid
     end
     it 'メールアドレスが重複の場合エラーになるか' do
       user = create(:user)
@@ -32,5 +32,5 @@ RSpec.describe User, type: :model do
       expect(user_password_short).to be_invalid
     end
   end
-    #pending "add some examples to (or delete) #{__FILE__}"
+  # pending "add some examples to (or delete) #{__FILE__}"
 end

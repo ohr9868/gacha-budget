@@ -22,6 +22,6 @@ class RecordsController < ApplicationController
   private
 
   def record_params
-    params.expect(record: [:played_date, :price_per_play, :play_count])
+    params.expect(record: [ :played_date, :price_per_play, :play_count ])
   end
 end

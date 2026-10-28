@@ -5,6 +5,6 @@ class CreateSeries < ActiveRecord::Migration[8.1]
       t.string :name, null: false
       t.timestamps
     end
-    add_index :series, [:user_id, :name], unique: true
+    add_index :series, [ :user_id, :name ], unique: true
   end
 end

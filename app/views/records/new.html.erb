@@ -1,0 +1,38 @@
+<h1>ガチャガチャを記録する</h1>
+<%= form_with model: @record, url: records_path do |f| %>
+  <% if @record.errors.any? %>
+    <ul>
+      <% @record.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  <% end %>
+
+  <div>
+    <%= label_tag "record_series_name", "シリーズ" %>
+    <%= text_field_tag "record[series_name]", params.dig(:record, :series_name),
+          id: "record_series_name", list: "series-options", autocomplete: "off", required: true, class: "border border-gray-300 rounded p-1" %>
+    <datalist id="series-options">
+      <% @series_list.each do |s| %>
+        <option value="<%= s.name %>"></option>
+      <% end %>
+    </datalist>
+  </div>
+
+  <div>
+    <%= f.label :played_date, "日付" %>
+    <%= f.date_field :played_date, required: true, class: "border border-gray-300 rounded p-1" %>
+  </div>
+
+  <div>
+    <%= f.label :price_per_play, "1回の金額（円）" %>
+    <%= f.number_field :price_per_play, min: 100, required: true, class: "border border-gray-300 rounded p-1" %>
+  </div>
+
+  <div>
+    <%= f.label :play_count, "回数" %>
+    <%= f.number_field :play_count, min: 1, required: true, class: "border border-gray-300 rounded p-1" %>
+  </div>
+
+  <%= f.submit "記録する" %>
+<% end %>

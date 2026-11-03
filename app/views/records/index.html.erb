@@ -1,0 +1,32 @@
+<h1>ガチャ記録一覧</h1>
+
+<p>合計: <%= number_with_delimiter(@all_records_price) %>円</p>
+
+<%= link_to "記録する", new_record_path %>
+
+<% if @records.present? %>
+  <table>
+    <thead>
+      <tr>
+        <th>日付</th>
+        <th>シリーズ</th>
+        <th>1回の金額</th>
+        <th>回数</th>
+        <th>合計</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @records.each do |record| %>
+        <tr>
+          <td><%= record.played_date %></td>
+          <td><%= record.series.name %></td>
+          <td><%= number_with_delimiter(record.price_per_play) %>円</td>
+          <td><%= record.play_count %></td>
+          <td><%= number_with_delimiter(record.total_price) %>円</td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+    <p>まだ記録がありません</p>
+<% end %>

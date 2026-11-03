@@ -1,5 +1,10 @@
 class RecordsController < ApplicationController
   before_action :authenticate_user!
+  def index
+    @records = current_user.records.includes(:series).order(played_date: :desc, id: :desc)
+    @all_records_price = @records.sum("price_per_play * play_count")
+  end
+
   def new
     @record = Record.new(played_date: Date.current)
     @series_list = current_user.series.order(:name)
@@ -11,7 +16,7 @@ class RecordsController < ApplicationController
     @record = Record.new(record_params)
     @record.series = series
     if series&.persisted? && @record.save
-      redirect_to root_path, notice: "記録しました"
+      redirect_to records_path, notice: "記録しました"
     else
       @record.errors.add(:base, "シリーズ名を入力してください") if series_name.blank?
       @series_list = current_user.series.order(:name)

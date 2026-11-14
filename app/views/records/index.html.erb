@@ -23,6 +23,7 @@
           <td><%= number_with_delimiter(record.price_per_play) %>円</td>
           <td><%= record.play_count %></td>
           <td><%= number_with_delimiter(record.total_price) %>円</td>
+          <td><%= link_to "編集", edit_record_path(record) %></td>
         </tr>
       <% end %>
     </tbody>

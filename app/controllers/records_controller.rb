@@ -43,7 +43,7 @@ class RecordsController < ApplicationController
 
   private
   def set_record
-    @record = current_user.record.find(params[:id])
+    @record = current_user.records.find(params[:id])
   end
 
   def series_name

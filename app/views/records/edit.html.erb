@@ -1,0 +1,5 @@
+<h1>記録を編集する</h1>
+
+<%= render "form", record: @record,
+      initial_series_name: params.dig(:record, :series_name) || @record.series&.name,
+      submit_label: "更新する" %>

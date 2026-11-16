@@ -1,6 +1,6 @@
 class RecordsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_record, only: %i[edit update]
+  before_action :set_record, only: %i[edit update destroy]
   def index
     @records = current_user.records.includes(:series).order(played_date: :desc, id: :desc)
     @all_records_price = @records.sum("price_per_play * play_count")
@@ -39,6 +39,11 @@ class RecordsController < ApplicationController
       @series_list = current_user.series.order(:name)
       render :edit, status: :unprocessable_entity
     end
+  end
+
+  def destroy
+    @record.destroy!
+    redirect_to records_path, notice: "削除しました", status: :see_other
   end
 
   private

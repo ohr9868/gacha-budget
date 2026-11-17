@@ -1,0 +1,4 @@
+<h1>ガチャガチャを記録する</h1>
+<%= render "form", record: @record,
+      initial_series_name: params.dig(:record, :series_name),
+      submit_label: "記録する" %>

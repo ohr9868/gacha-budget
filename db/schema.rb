@@ -10,9 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_10_23_044320) do
+ActiveRecord::Schema[8.1].define(version: 2026_11_17_071703) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
+
+  create_table "budgets", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.date "month", null: false
+    t.integer "amount", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id", "month"], name: "index_budgets_on_user_id_and_month", unique: true
+    t.index ["user_id"], name: "index_budgets_on_user_id"
+    t.check_constraint "EXTRACT(day FROM month) = 1::numeric", name: "budgets_month_first_day"
+    t.check_constraint "amount >= 0", name: "budgets_amount_non_negative"
+  end
 
   create_table "records", force: :cascade do |t|
     t.bigint "series_id", null: false
@@ -47,6 +59,7 @@ ActiveRecord::Schema[8.1].define(version: 2026_10_23_044320) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "budgets", "users"
   add_foreign_key "records", "series"
   add_foreign_key "series", "users"
 end

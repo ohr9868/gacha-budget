@@ -1,0 +1,13 @@
+<% if @budget %>
+  <p>予算: <%= number_with_delimiter(@budget.amount) %>円</p>
+  <p>使った合計: <%= number_with_delimiter(@spent) %>円</p>
+  <p>残り: <%= number_with_delimiter(@remaining) %>円</p>
+
+
+<% else %>
+  <p>今月の予算は未設定です</p>
+  <p>使った合計: <%= number_with_delimiter(@spent) %>円</p>
+
+  <%= link_to "予算を設定する", new_budget_path %>
+<% end %>
+<%= link_to "ガチャ記録一覧へ", records_path %>

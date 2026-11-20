@@ -1,10 +1,6 @@
 class BudgetsController < ApplicationController
     before_action :authenticate_user!
 
-    def index
-        @budgets = current_user.budgets.order(month: :desc)
-    end
-
     def new
         @budget = current_user.budgets.new(month: Date.current.beginning_of_month)
     end

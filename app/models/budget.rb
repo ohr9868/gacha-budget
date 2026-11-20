@@ -1,13 +1,14 @@
 class Budget < ApplicationRecord
     belongs_to :user
-    before_validation :beginning_of_month
 
     validates :month, presence: true, uniqueness: { scope: :user_id }
     validates :amount, presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
 
-    private
-
-    def beginning_of_month
-        self.month = month.beginning_of_month if month.present?
+    def month=(value)
+      if value.is_a?(String) && value.match?(/\A\d{4}-\d{2}\z/)
+       value = Date.strptime(value, "%Y-%m")
+      end
+      value = value.beginning_of_month if value.respond_to?(:beginning_of_month)
+      super(value)
     end
 end

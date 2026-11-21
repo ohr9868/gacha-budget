@@ -14,6 +14,21 @@ class BudgetsController < ApplicationController
         end
     end
 
+    def edit; end
+
+    def update
+        if @budget.update(budget_params)
+            redirect_to dashboard_path, notice: "予算を更新しました"
+        else
+            render :edit, status: :unprocessable_entity
+        end
+    end
+
+    def destroy
+        @budget.destroy!
+        redirect_to dashboard_path, notice: "予算を削除しました", status: :see_other
+    end
+
     private
     def budget_params
         params.expect(budget: [ :month, :amount ])

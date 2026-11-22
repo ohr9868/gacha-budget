@@ -13,10 +13,7 @@
   </div>
   <div>
     <%= f.label :amount, "予算" %>
-    <%= f.number_field :amount, required: true, class: "border border-gray-300 rounded p-1" %>
+    <%= f.number_field :amount, min: 0, step: 100, required: true, class: "border border-gray-300 rounded p-1" %>
   </div>
-  
   <div><%= f.submit submit_label %></div>
-
-  <div><%= link_to "ダッシュボードに戻る", dashboard_path %></div>
 <% end %>

@@ -78,13 +78,13 @@ RSpec.describe "Records", type: :request do
       sign_in user
       params = valid_params.deep_merge(record: { series_name: "" })
       expect { post records_path, params: params }.not_to change(Record, :count)
-      expect(response).to have_http_status(:unprocessable_entity)
+      expect(response).to have_http_status(:unprocessable_content)
     end
     it "金額が0なら保存されない" do
       sign_in user
       params = valid_params.deep_merge(record: { price_per_play: 0 })
       expect { post records_path, params: params }.not_to change(Record, :count)
-      expect(response).to have_http_status(:unprocessable_entity)
+      expect(response).to have_http_status(:unprocessable_content)
     end
   end
 
@@ -121,7 +121,7 @@ RSpec.describe "Records", type: :request do
       patch record_path(record), params: {
         record: { series_name: "ねこ", played_date: Date.current,
         price_per_play: 0, play_count: 3 } }
-      expect(response).to have_http_status(:unprocessable_entity)
+      expect(response).to have_http_status(:unprocessable_content)
       expect(record.reload.price_per_play).to eq 300
     end
     it "シリーズ名が空なら更新されない" do
@@ -129,7 +129,7 @@ RSpec.describe "Records", type: :request do
       patch record_path(record), params: {
         record: { series_name: "", played_date: Date.current,
         price_per_play: 500, play_count: 3 } }
-      expect(response).to have_http_status(:unprocessable_entity)
+      expect(response).to have_http_status(:unprocessable_content)
       expect(record.reload.price_per_play).to eq 300
     end
     it "他人の記録は更新できない" do

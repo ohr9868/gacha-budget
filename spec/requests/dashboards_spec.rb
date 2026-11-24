@@ -41,6 +41,6 @@ RSpec.describe "Dashboards", type: :request do
       expect(response.body).not_to include("999円")
       expect(response.body).not_to include("123円")
       expect(response.body).to include("今月の予算は未設定です")
-    end    
+    end
   end
 end

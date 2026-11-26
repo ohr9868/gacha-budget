@@ -1,0 +1,19 @@
+  <%= form_with model: budget do |f| %>
+  <% if budget.errors.any? %>
+    <ul>
+      <% budget.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  <% end %>
+  <div>
+    <%= f.label :month, "対象月" %>
+    <%= f.month_field :month, value: budget.month&.strftime("%Y-%m"), required: true,
+          class: "border border-gray-400 rounded p-2" %>
+  </div>
+  <div>
+    <%= f.label :amount, "予算" %>
+    <%= f.number_field :amount, min: 0, step: 100, required: true, class: "border border-gray-300 rounded p-1" %>
+  </div>
+  <div><%= f.submit submit_label %></div>
+<% end %>

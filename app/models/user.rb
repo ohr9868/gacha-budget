@@ -6,4 +6,5 @@ class User < ApplicationRecord
 
   has_many :series, dependent: :destroy
   has_many :records, through: :series
+  has_many :budgets, dependent: :destroy
 end

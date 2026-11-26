@@ -1,0 +1,6 @@
+<h1>予算を編集する</h1>
+<%= render "form", budget: @budget, submit_label: "更新する" %>
+<%= button_to "予算をなしにする", budget_path(@budget),
+      method: :delete,
+      form: { data: { turbo_confirm: "この月の予算を削除しますか？" } } %>
+<%= link_to "ダッシュボードに戻る", dashboard_path %>

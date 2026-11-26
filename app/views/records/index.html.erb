@@ -3,6 +3,8 @@
 <p>合計: <%= number_with_delimiter(@all_records_price) %>円</p>
 
 <%= link_to "記録する", new_record_path %>
+<%= link_to "予算を作成する", new_budget_path %>
+<%= link_to "ダッシュボードに戻る", dashboard_path %>
 
 <% if @records.present? %>
   <table>

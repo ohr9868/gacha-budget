@@ -23,12 +23,8 @@
     <%= javascript_include_tag "application", "data-turbo-track": "reload", type: "module" %>
   </head>
 
-  <body>
-    <% flash.each do |type, message| %>
-      <div class="mx-4 mt-4 rounded-md border px-4 py-3">
-        <%= message %>
-      </div>
-    <% end %>
+  <body class="font-yomogi h-screen bg-sky-c text-gray-800 overflow-hidden">
+    <%= render 'shared/flash_message' %>
     <%= yield %>
   </body>
 </html>

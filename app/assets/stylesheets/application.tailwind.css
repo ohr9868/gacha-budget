@@ -1,1 +1,6 @@
 @import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Yomogi&display=swap');
+@theme {
+  --font-yomogi: "Yomogi", sans-serif;
+  --color-sky-c: #EEF8FF;
+}
